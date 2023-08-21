@@ -1,18 +1,18 @@
 import './ExpenseItem.css';
+import ExpenseDate from './ExpenseDate';
+import ExpenseDetails from './ExpenseDetails';
+import Card from '../UI/Card';
 
-function ExpenseItem() {
-    const expenseTitle="Sarees";
-    const expenseAmount=500.70;
-    const locationOfExpenditure="Textiles";
+const ExpenseItem = (props) => {
+  const deleteExpense = () => {
+    console.log("Delete");
+  }
     return (
-      <div className='expense-item'>
-        <div>{expenseDate.toISOString()}</div>
-        <div className='expense-item__description'>
-          <h2 >{expenseTitle}</h2>
-          <div className='expense-item__carprice'>${expenseAmount}</div></div>
-          <br></br>
-          <div className='expense-item__location'>{locationOfExpenditure}</div>
-      </div>
+      <Card className='expense-item'>
+        <ExpenseDate date = {props.date} />
+        <ExpenseDetails amount={props.amount}  location={props.location}   title={props.title} />
+        <button onClick={deleteExpense}>Delete Expense</button>
+      </Card>
     ); 
 }
 export default ExpenseItem;
